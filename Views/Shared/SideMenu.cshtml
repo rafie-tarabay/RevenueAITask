@@ -1,0 +1,172 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using RevenueAI.Extensions
+
+<ul class="vertical-nav-menu">
+    <li class="app-sidebar__heading">Home</li>
+    <li>
+        <a id="M0" asp-controller="Home" asp-action="Index">
+            <i class="metismenu-icon pe-7s-home"></i>
+            Dashboard
+        </a>
+    </li>
+
+    <li class="app-sidebar__heading">RevenueAI Control Panel</li>
+    <li id="M1">
+        <a href="#">
+            <i class="metismenu-icon pe-7s-users"></i>
+            Applications
+            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+        </a>
+        <ul>
+            @if (User.HasPermission("Accounts", "Read"))
+            {
+                <li>
+                    <a id="M1-1" asp-controller="Accounts" asp-action="Index">
+                        <i class="metismenu-icon"></i>
+                        Manage Accounts
+                    </a>
+                </li>
+            }
+            @if (User.HasPermission("Cards", "Read"))
+            {
+                <li>
+                    <a id="M1-2" asp-controller="Cards" asp-action="Index">
+                        <i class="metismenu-icon"></i>
+                        Manage Cards
+                    </a>
+                </li>
+            }
+
+            @if (User.HasPermission("Transactions", "Read"))
+            {
+                <li>
+                    <a id="M1-3" asp-controller="Transactions" asp-action="Index">
+                        <i class="metismenu-icon"></i>
+                        Manage Transactions
+                    </a>
+                </li>
+            }
+        </ul>
+    </li>
+
+
+
+    @if (User.HasManyPermission("Users") || User.HasManyPermission("Vendors"))
+    {
+
+        <li id="M2">
+            <a href="#">
+                <i class="metismenu-icon pe-7s-portfolio"></i>
+                Admin Tasks
+                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+            </a>
+            <ul>
+                @if (User.HasPermission("Users", "Read"))
+                {
+                    <li>
+                        <a id="M2-1" asp-controller="Users" asp-action="Index">
+                            <i class="metismenu-icon"></i>
+                            Manage Users
+                        </a>
+                    </li>
+                }
+                @if (User.HasPermission("Vendors", "Read"))
+                {
+                    <li>
+                        <a id="M2-2" asp-controller="Vendors" asp-action="Index">
+                            <i class="metismenu-icon"></i>
+                            Manage Vendors
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+
+        <li id="M20">
+            <a href="#">
+                <i class="metismenu-icon pe-7s-portfolio"></i>
+                Reports
+                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+            </a>
+            <ul>
+                    <li>
+                        <a id="M20-1" asp-controller="Reports" asp-action="AllCardsReport">
+                            <i class="metismenu-icon"></i>
+                            All Cards Report
+                        </a>
+                    </li>
+            </ul>
+        </li>
+    }
+
+
+    @if (User.HasManyPermission("Lookups"))
+    {
+
+
+        <li id="M3">
+
+            <a href="#">
+                <i class="metismenu-icon pe-7s-users"></i>
+                Lookups
+                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+            </a>
+            <ul>
+
+                <li>
+                    <a id="M3-1" asp-controller="CardStates" asp-action="Index">
+                        <i class="metismenu-icon"></i>
+                        Card States
+                    </a>
+                </li>
+
+                <li>
+                    <a id="M3-2" asp-controller="CardTypes" asp-action="Index">
+                        <i class="metismenu-icon"></i>
+                        Card Types
+                    </a>
+                </li>
+
+
+                <li>
+                    <a id="M3-3" asp-controller="Currencies" asp-action="Index">
+                        <i class="metismenu-icon"></i>
+                        Currencies
+                    </a>
+                </li>
+                <li>
+                    <a id="M3-31" asp-controller="AccountTypes" asp-action="Index">
+                        <i class="metismenu-icon"></i>
+                        Account Types
+                    </a>
+                </li>
+                <li>
+                    <a id="M3-4" asp-controller="TransactionTypes" asp-action="Index">
+                        <i class="metismenu-icon"></i>
+                        Transaction Types
+                    </a>
+                </li>
+
+                <li>
+                    <a id="M3-5" asp-controller="UserTypes" asp-action="Index">
+                        <i class="metismenu-icon"></i>
+                        User Types
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+    }
+
+
+
+
+
+    <li>
+        <a asp-controller="Login" asp-action="LogOut">
+            <i class="metismenu-icon pe-7s-power"></i>
+            Logout
+        </a>
+    </li>
+</ul>

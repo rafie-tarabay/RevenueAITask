@@ -1,0 +1,263 @@
+﻿
+/* ============================================ *
+ * CANDIDATES PHASE
+ * ============================================ */
+
+.interviews {
+    border-radius: 25px;
+}
+
+.candidate-search .form-control {
+    border-radius: 12px;
+}
+
+    .candidate-search .form-control::placeholder {
+        color: var(--muted);
+    }
+
+.candidate-search .form-group span.input-img:not(.input-img-left) {
+    border-left: 1px solid var(--secondary-2);
+    padding-top: 1.5px;
+    padding-bottom: 1.5px;
+}
+
+.candidate-search .dropdown-toggle::after {
+    margin-left: 0;
+}
+
+.candidate-search .dropdown.show .dropdown-toggle::after {
+    content: url(../images/up-blue.png);
+}
+
+.candidate-search .dropdown .dropdown-menu {
+    background: var(--light);
+    box-shadow: 0px 0px 32px rgba(215, 215, 215, 0.5);
+    border-radius: 0px 0px 12px 12px;
+    background-color: var(--white);
+    transform: translate3d(0, 0, 0) !important;
+    left: initial !important;
+    right: 0 !important;
+    top: 38px !important;
+    max-height: 240px;
+    overflow: auto;
+    padding: 0;
+}
+
+.candidate-search .dropdown {
+    position: initial;
+}
+
+    .candidate-search .dropdown .dropdown-menu .dropdown-item {
+        padding: .93rem 3.5rem;
+        font-weight: normal;
+        font-size: .875rem;
+        color: var(--secondary);
+    }
+
+        .candidate-search .dropdown .dropdown-menu .dropdown-item:not(:last-child) {
+            box-shadow: inset 0px -1px 0px var(--light);
+        }
+
+        .candidate-search .dropdown .dropdown-menu .dropdown-item:focus, .candidate-search .dropdown .dropdown-menu .dropdown-item:hover {
+            background-color: transparent;
+            font-weight: bold;
+        }
+    /* width */
+    .candidate-search .dropdown .dropdown-menu::-webkit-scrollbar {
+        width: 24px;
+        border-radius: 8px;
+    }
+
+    /* Track */
+    .candidate-search .dropdown .dropdown-menu::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    /* Handle */
+    .candidate-search .dropdown .dropdown-menu::-webkit-scrollbar-thumb {
+        background: var(--secondary-2);
+        border: 10px solid var(--white);
+    }
+
+        /* Handle on hover */
+        .candidate-search .dropdown .dropdown-menu::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+/* ============================================ *
+ * CANDIDATES PHASE TABS
+ * ============================================ */
+
+#candidates-tab > .active,
+#user-video-tab > .active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.nav-tabs .candidate-user-tab {
+    padding: 1rem;
+    margin-right: 0;
+    border-radius: 1rem;
+    margin-bottom: .5rem;
+}
+
+    .nav-tabs .nav-item.show .candidate-user-tab, .nav-tabs .candidate-user-tab.active {
+        box-shadow: none;
+    }
+
+.nav-tabs .nav-item.show .nav-link.candidate-user-tab, .nav-tabs .nav-link.candidate-user-tab.active, .nav-tabs .nav-link.candidate-user-tab:focus, .nav-tabs .nav-link.candidate-user-tab:hover {
+    background-color: var(--light);
+}
+
+.candidate-user-tab .card {
+    background-color: transparent;
+}
+
+.video-img.candidate-avatar {
+    border-radius: 1rem;
+    min-width: 100px;
+    min-height: 72px;
+}
+
+.candidate-status .badge {
+    border-radius: 100px;
+    padding: 6px 12px;
+    font-weight: 900;
+    font-size: .625rem;
+}
+
+/*CANDIDATE VIDEO TAB*/
+
+.candidate-video .nav-tabs, .comapny-videos-tabs .nav-tabs {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+}
+
+.nav-tabs .nav-item .nav-link.candidate-video-tab {
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: bold;
+    box-shadow: inset 0px -4px 0px rgb(255 255 255 / 40%);
+}
+
+.nav-tabs .nav-item.show .nav-link.candidate-video-tab, .nav-tabs .nav-link.candidate-video-tab.active,
+.nav-tabs .nav-link.candidate-video-tab:hover {
+    box-shadow: inset 0px -4px 0px var(--white);
+    background-color: transparent;
+    color: var(--white);
+}
+
+.tab-pane.video-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(180deg, #f6f6fa 80.97%, rgb(0 0 0 / 67%) 90.91%);
+}
+
+.tab-pane.video-container, .tab-video {
+    min-height: 400px;
+    max-height: 700px;
+}
+
+.tab-video {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    position: relative;
+}
+
+.play-video {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/*CANDIDATE INFO TAB*/
+
+.candidate-status-search .dropdown .dropdown-toggle::after {
+    content: url(../images/down-white.png);
+    position: absolute;
+    right: 25px;
+}
+
+.candidate-status-search .dropdown.show .dropdown-toggle::after {
+    content: url(../images/up-white.png);
+}
+
+.candidate-status-search .dropdown .dropdown-menu {
+    top: 45px !important;
+    width: calc(100% - 25px) !important;
+}
+
+    .candidate-status-search .dropdown .dropdown-menu .dropdown-item:hover {
+        background-color: rgba(248, 223, 221, 1);
+        color: var(--danger);
+    }
+
+.candidate-status-search .btn.show {
+    border-radius: 32px 32px 0px 0px;
+}
+
+/*CANDIDATE RESUME TAB*/
+
+.candidate-resume-tab .nav-tabs {
+    background-color: var(--light);
+    border-radius: 100px;
+    padding: 5px;
+}
+
+    .candidate-resume-tab .nav-tabs .nav-item .nav-link {
+        font-size: .75rem;
+        color: var(--secondary);
+        margin: 0;
+        border-radius: 50px;
+        box-shadow: none;
+        padding: .6rem 2rem;
+    }
+
+        .candidate-resume-tab .nav-tabs .nav-item .nav-link.active {
+            color: var(--primary);
+        }
+
+/*FIND CANDIDATE FILTER*/
+
+.break-line {
+    border-bottom: 4px solid var(--light);
+    margin: 0 -1rem;
+}
+
+/*STATUS LIST MODAL*/
+
+.status-list > ul > li a {
+    color: var(--secondary);
+    padding: 1.25rem 0;
+    box-shadow: inset 0px -2px 0px var(--light);
+    display: block;
+    font-weight: normal;
+}
+
+/*DATE PROPOSALE MODAL*/
+.candidate-avatar {
+    max-width: 175px;
+    max-height: 200px;
+}
+
+    .img-container, .candidate-avatar .badge-primary {
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .candidate-avatar .badge-primary {
+        padding: 18px 35px;
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        bottom: -25px;
+        transform: translate(-50%, 0);
+    }

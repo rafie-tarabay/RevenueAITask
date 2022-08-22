@@ -1,0 +1,86 @@
+﻿@model IEnumerable<RevenueAITask.Models.Transaction>
+@using RevenueAI.Extensions
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Transaction</h1>
+
+
+<ul class="list-unstyled row justify-content-between">
+
+    @if (User.HasPermission("Transactions", "Create"))
+    {
+        <li class="col">
+            <a asp-action="Create">Create New</a>
+        </li>
+    }
+
+    <li class="col row justify-content-end">
+        <form asp-controller="Transactions" asp-action="Index" id="list-search">
+            <div class="search-wrapper">
+                <div class="input-holder">
+                    <input type="text" class="search-input" id="search-input" onchange="this.form.submit()" placeholder="Type to search" name="searchTerm" value="@ViewBag.SearchTerm">
+                    <button type="button" class="search-icon"><span></span></button>
+                </div>
+                <button class="close"></button>
+            </div>
+        </form>
+    </li>
+</ul>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CardNumberNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CardNumberNavigation.CardNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionType.TransactionTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vendor.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    document.getElementById("M1").classList.add("mm-active");
+    document.getElementById("M1-3").classList.add("mm-active");
+</script>
+

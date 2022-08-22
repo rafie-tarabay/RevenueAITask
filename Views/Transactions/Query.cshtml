@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+
+
+@Html.React("SearchTransactionList", new { url = "/api/search"   })
+
+@*<div id="ReactContent"></div>*@
+
+
+
+@*<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.0/umd/react.development.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.0/umd/react-dom.development.js"></script>*@
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+<script src="@Url.Content("~/jsx/search.jsx")"></script>
+
+
+@Html.ReactInitJavaScript()

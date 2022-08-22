@@ -1,0 +1,68 @@
+﻿@inject RevenueAITask.Data.RevenueAIContext Context
+@{ ViewData["Title"] = "RevenueAI"; }
+
+<div class="main-card mb-3 card">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-3 widget-content bg-midnight-bloom">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Users</div>
+                        <div class="widget-subheading">Users count</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>@Context.Users.Count()</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 widget-content bg-arielle-smile">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Vendors</div>
+                        <div class="widget-subheading">Vendors count</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>@Context.Vendors.Count()</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 widget-content bg-grow-early">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Transactions</div>
+                        <div class="widget-subheading">Transactions count</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>@Context.Transactions.Count()</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-3 widget-content bg-mixed-hopes">
+                <div class="widget-content-wrapper text-white">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Cards</div>
+                        <div class="widget-subheading">Cards Count</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>@Context.Cards.Count()</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+    document.getElementById("M0").classList.add("mm-active");
+</script>

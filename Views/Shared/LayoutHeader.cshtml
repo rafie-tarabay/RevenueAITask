@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using RevenueAI.Extensions
+@using System.Security.Claims
+
+
+
+<div class="app-header-left">
+    <ul class="header-menu nav">
+        @if (User.HasPermission("Accounts", "Create"))
+        {
+            <li class="nav-item">
+                <a asp-controller="Accounts" asp-action="Create" class="nav-link">
+                    <i class="nav-link-icon fa fa-database"> </i>
+                    New Account
+                </a>
+            </li>
+        }
+        @if (User.HasPermission("Cards", "Create"))
+        {
+            <li class="btn-group nav-item">
+                <a asp-controller="Cards" asp-action="Create" class="nav-link">
+                    <i class="nav-link-icon fa fa-edit"></i>
+                    New Card
+                </a>
+            </li>
+        }
+        @if (User.HasPermission("Transactions", "Create"))
+        {
+            <li class="dropdown nav-item">
+                <a asp-controller="Transactions" asp-action="Create" class="nav-link">
+                    <i class="nav-link-icon fa fa-cog"></i>
+                    New Transaction
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+<div class="app-header-right">
+    <div class="header-btn-lg pr-0">
+        <div class="widget-content p-0">
+            <div class="widget-content-wrapper">
+                <div class="widget-content-left">
+                    <div class="btn-group">
+                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                            <img width="42" src="~/assets/images/avatar.jpg">
+                            <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                        </a>
+
+                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+
+                            <a asp-controller="Users" asp-action="Details" asp-route-id="@Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value" tabindex="0" class="dropdown-item">My Account</a>
+                            <a asp-controller="Users" asp-action="Edit" asp-route-id="@Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value" tabindex="0" class="dropdown-item">Update Password</a>
+
+                            <button type="button" tabindex="0" class="dropdown-item" onclick="document.getElementById('TooltipDemo').click()">Color Schema Settings</button>
+                            <a asp-controller="Login" asp-action="LogOut" tabindex="0" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget-content-left  ml-3 header-user-info">
+                    <div class="widget-heading">
+                        @Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value
+                    </div>
+                    <div class="widget-subheading">
+                        @Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
